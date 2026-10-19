@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-CSV_PATH = Path("data/raw/champion_details_sample.csv")
+CSV_PATH = Path("data/raw/champion_details_full.csv")
 DB_PATH = Path("data/processed/champions.db")
 
 # Read the validated champion data
