@@ -1,0 +1,4 @@
+source_name,source_url,source_type,planned_fields
+MCOC.app,https://mcoc.app/,community_database,"name,class,immunities,rankings"
+AuntM.ai,https://auntm.ai/,community_database,"name,class,abilities,release_date"
+Official MCOC,https://playcontestofchampions.com/,official_website,"champion_abilities,announcements"

@@ -1,7 +1,17 @@
+
 .venv/
 __pycache__/
 .pytest_cache/
 *.pyc
 .DS_Store
 .env
+.env.*
+.vscode/
+
+# Ignore temporary data files
+data/raw/failed_*.csv
+data/raw/champion_details_backup.csv
+
+# Ignore databases except the dashboard database
 *.db
+!data/processed/champions.db
