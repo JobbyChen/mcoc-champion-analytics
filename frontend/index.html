@@ -377,7 +377,7 @@
 
 
             const selectedClass = document.getElementById("class-filter").value;
-            const url = new URL("http://127.0.0.1:8000/champions");
+            const url = new URL("https://mcoc-champion-api.onrender.com/champions");
 
             if (selectedClass) {
                 url.searchParams.set("champion_class", selectedClass);
@@ -397,6 +397,8 @@
                 }
 
                 const champions = await response.json();
+                console.log("API response:", champions);
+                console.log("Is array:", Array.isArray(champions));
                 const searchText = document.getElementById("champion-search").value.toLowerCase();
 
                 const filteredChampions = champions.filter(champion =>
