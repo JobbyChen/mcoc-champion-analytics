@@ -1,30 +1,76 @@
-# MCOC Champion Analytics
+# MCOC Champion Analytics Dashboard
 
-An original, data-first champion explorer inspired by the browsing experience at mcoc.app. Not affiliated with Kabam or mcoc.app.
+An interactive web dashboard for exploring and analyzing champion data from **Marvel Contest of Champions (MCOC)**.
 
-## Current status
-Starter scaffold with a working browser explorer, a small **illustrative** CSV dataset, a Python/Pandas cleaning script, SQLite schema, and a FastAPI endpoint. Sample numeric ratings are **not factual game statistics**. Do not publish them as measured or official rankings.
+**[View Live Dashboard](https://jobbychen.github.io/mcoc-champion-analytics/frontend/index.html)** | **[Explore API](https://mcoc-champion-api.onrender.com/champions)**
 
-## Quick start: frontend
-Open `frontend/index.html` in your browser. It uses a small embedded demonstration dataset so it works without a server.
+## Project Overview
 
-## Python data pipeline
-```bash
-python -m venv .venv
-# Windows: .venv\\Scripts\\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-python scripts/clean_data.py
-uvicorn backend.main:app --reload
-```
-Visit `http://127.0.0.1:8000/docs`. The cleaner writes `data/processed/champions.csv` and `data/processed/champions.db`.
+This project demonstrates an end-to-end data management workflow, from collecting and validating raw data to storing structured records and presenting them through an interactive website.
 
-## Planned next steps
-1. Find and inspect a reusable, appropriately licensed MCOC dataset.
-2. Define data dictionary, sources, and provenance.
-3. Expand cleaning tests, duplicate rules, and missing-data handling.
-4. Connect React/TypeScript UI to the API and add comparisons.
-5. Design transparent scoring, avoiding invented measurements.
+The dashboard allows users to explore a dataset of **332 champion records**, search for individual champions, filter by class and tier, and visualize class distributions.
 
-## Data fields
-`name`, `class`, `immunities`, `offense`, `survivability`, `utility`, `source`. Scores in sample are illustrative placeholders only.
+I built this project to strengthen my practical skills in Python, SQL, data quality assurance, API development, and data visualization.
+
+## Features
+
+- **Champion Explorer:** Browse and search champion records.
+- **Interactive Filters:** Filter champions by class and tier.
+- **Data Visualization:** View champion distributions using Chart.js.
+- **Data Validation:** Check for duplicate records, missing values, and invalid classifications.
+- **Automated Collection:** Collect champion information with progress saving and failed-request tracking.
+- **REST API:** Retrieve structured champion information through FastAPI.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Data collection and processing |
+| Pandas | Data cleaning, transformation, and validation |
+| SQLite / SQL | Structured data storage and querying |
+| FastAPI | Backend API development |
+| HTML, CSS, JavaScript | Frontend dashboard |
+| Chart.js | Interactive visualizations |
+| GitHub Pages | Frontend hosting |
+| Render | Backend hosting |
+
+## Data Pipeline
+
+1. **Collection:** Retrieve champion information from the source website.
+2. **Processing:** Convert raw information into a structured dataset.
+3. **Validation:** Check uniqueness, completeness, and valid classifications.
+4. **Storage:** Load champion records into SQLite.
+5. **API:** Use FastAPI to retrieve and filter stored data.
+6. **Visualization:** Display champion information through an interactive dashboard.
+
+## Data Sources and Attribution
+
+Champion information and community tier rankings are sourced from [MCOC.app](https://mcoc.app/), with permission for collection and public display.
+
+Tier rankings represent community opinions rather than objective performance measurements. Marvel Contest of Champions and associated intellectual property belong to their respective owners. This is an independent fan-made analytics project.
+
+## What I Learned
+
+This project helped me develop practical experience with:
+
+- Designing and maintaining structured datasets.
+- Identifying and handling common data quality issues.
+- Automating repetitive data collection tasks.
+- Using SQL to retrieve and aggregate information.
+- Connecting a database-backed API to a user-facing dashboard.
+- Deploying and troubleshooting a full-stack web application.
+
+A major takeaway was understanding that **data reliability matters just as much as data collection**. Building a useful dashboard requires not only gathering information, but also checking its accuracy, consistency, and accessibility.
+
+## Deployment
+
+The frontend is hosted on GitHub Pages, while the FastAPI backend is hosted on Render.
+
+The backend runs on a free hosting instance, so the first request after inactivity may take additional time.
+
+## Future Improvements
+
+- Add more detailed champion statistics.
+- Expand analytics and comparisons between classes and tiers.
+- Add automated data refresh and validation workflows.
+- Improve dashboard responsiveness and user experience.
